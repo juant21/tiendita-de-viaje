@@ -188,10 +188,12 @@ main {
     flex-direction: column;
     gap: 1.5rem;
 }
+
 .carrito-vacio,
 .carrito-comprado {
     color: var(--clr-main);
 }
+
 .carrito-productos {
     display: flex;
     flex-direction: column;
@@ -265,17 +267,6 @@ main {
     border-top-right-radius: 1rem;
     border-bottom-right-radius: 1rem;
 }
-.close-menu {
-    display: none;
-}
-
-.disabled {
-    display: none;
-}
-.header-mobile {
-    display: none;
-}
-
-.close-menu {
+.disabled{
     display: none;
 }
