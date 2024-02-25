@@ -339,4 +339,8 @@ main {
     margin-bottom: 1rem;
   }
 
-  
+  /* maps*/
+  #map {
+	height: 500px;
+	width: 100%;
+}
