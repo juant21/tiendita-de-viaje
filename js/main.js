@@ -1,4 +1,4 @@
- const productos =  [
+const productos = [
     {
         id: "abrigo-01",
         titulo: "Abrigo Masculino",
@@ -239,13 +239,17 @@
         },
         precio: 100000
     },
- ]
+]
 
 const contenedorProductos = document.querySelector("#contenedor-productos");
+const botonesCategorias = document.querySelectorAll(".boton-categoria");
 
-function cargarProductos() {
-    
-    productos.forEach(producto => {
+
+function cargarProductos(productosElegidos) {
+
+    contenedorProductos.innerHTML ="";
+
+    productosElegidos.forEach(producto => {
 
         const div = document.createElement("div");
         div.classList.add("producto");
@@ -256,10 +260,26 @@ function cargarProductos() {
               <p class="producto-precio">$${producto.precio}</p>
               <button class="producto-agregar" id="${producto.id}">agregar</button>
              </div>`
-        ;
+            ;
         contenedorProductos.append(div);
     })
 
 }
 
-cargarProductos();
+cargarProductos(productos);
+
+botonesCategorias.forEach(boton => {
+    boton.addEventListener("click", (e) => {
+
+        botonesCategorias.forEach(boton => boton.classList.remove("active"));
+        e.currentTarget.classList.add("active");
+
+        if(e.currentTarget.id != "todos"){
+        const productosBoton = productos.filter(producto => producto.categoria.id === e.currentTarget.id);
+        cargarProductos(productosBoton);
+        }else{
+            cargarProductos(productos);
+        }
+
+    })
+})
